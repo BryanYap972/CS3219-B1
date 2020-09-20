@@ -2,6 +2,10 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const serverless = require("serverless-http");
+import chai, { assert } from "chai";
+import chaiHttp from "chai-http";
+chai.use(chaiHttp);
+chai.should();
 
 require("dotenv").config();
 
