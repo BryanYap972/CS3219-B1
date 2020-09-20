@@ -1,9 +1,10 @@
 import chai, { assert } from "chai";
 import chaiHttp from "chai-http";
-import app from "../src/api";
+import { serverlessApp } from "../src/api";
 
 chai.use(chaiHttp);
 chai.should();
+const app = serverlessApp;
 
 describe("Tests", () => {
   describe("/GET test", () => {
