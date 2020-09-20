@@ -4,8 +4,6 @@ const mongoose = require("mongoose");
 const serverless = require("serverless-http");
 import chai, { assert } from "chai";
 import chaiHttp from "chai-http";
-chai.use(chaiHttp);
-chai.should();
 
 require("dotenv").config();
 
@@ -31,5 +29,8 @@ connection.once("open", () => {
 const usersRouter = require("./routes/users");
 
 app.use("/.netlify/functions/api/users", usersRouter);
+
+chai.use(chaiHttp);
+chai.should();
 
 module.exports.handler = serverless(app);
