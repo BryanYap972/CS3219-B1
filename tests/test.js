@@ -1,6 +1,7 @@
 import chai, { assert } from "chai";
 import chaiHttp from "chai-http";
-import app from "../src/api";
+
+const app = module.exports.handler;
 
 chai.use(chaiHttp);
 chai.should();

@@ -2,12 +2,16 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const serverless = require("serverless-http");
+import chai, { assert } from "chai";
+import chaiHttp from "chai-http";
+chai.use(chaiHttp);
+chai.should();
 
 require("dotenv").config();
 
 const app = express();
 const port = process.env.PORT || 5000;
-
+console.log(port);
 app.use(cors());
 app.use(express.json());
 
@@ -28,4 +32,20 @@ const usersRouter = require("./routes/users");
 
 app.use("/.netlify/functions/api/users", usersRouter);
 
-module.exports = serverless(app);
+describe("Tests", () => {
+  describe("/GET test", () => {
+    it("it should GET all the users", function (done) {
+      try {
+        chai
+          .request(app)
+          .get("/.netlify/functions/api/users")
+          .end((err, res) => {
+            res.should.have.status(200);
+            done();
+          });
+      } catch (done) {}
+    });
+  });
+});
+
+module.exports.handler = serverless(app);
