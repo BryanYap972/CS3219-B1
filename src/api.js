@@ -30,4 +30,4 @@ app.use("/.netlify/functions/api/users", usersRouter);
 
 export const serverlessApp = app;
 
-module.exports.handler = serverless(app);
+module.exports.handler = serverless(serverlessApp);
