@@ -28,4 +28,6 @@ const usersRouter = require("./routes/users");
 
 app.use("/.netlify/functions/api/users", usersRouter);
 
+export default app;
+
 module.exports.handler = serverless(app);
