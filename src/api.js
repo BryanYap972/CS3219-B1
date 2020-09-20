@@ -31,6 +31,5 @@ const usersRouter = require("./routes/users");
 app.use("/.netlify/functions/api/users", usersRouter);
 
 chai.use(chaiHttp);
-chai.should();
 
 module.exports.handler = serverless(app);
