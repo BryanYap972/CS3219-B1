@@ -1,6 +1,6 @@
 import chai, { assert } from "chai";
 import chaiHttp from "chai-http";
-import app from "../src/app";
+import app from "../src/api";
 
 chai.use(chaiHttp);
 chai.should();
